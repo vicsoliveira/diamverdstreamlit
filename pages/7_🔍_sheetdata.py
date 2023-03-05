@@ -48,11 +48,11 @@ def read_from_database(res):
 #         worksheet.update_cell(length_row+1, 3, str(res['Price'][ind]))
         rows = worksheet.get_all_records()
         df = pd.DataFrame(rows)
-        print(df.head())
+        
        
        
     # Return a success message
-    return st.success("Updated to Database ", icon="✅")\
+    return display(df)
 
 # If the "Send to Database" button is clicked, execute the send_to_database() function
 # col2.write("Save in Shared Cloud?")
