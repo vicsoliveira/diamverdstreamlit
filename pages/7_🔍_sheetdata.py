@@ -6,7 +6,8 @@ import pandas as pd
 
 st.title("SheetData")
 
-scope = ["https://www.googleapis.com/auth/spreadsheets"]
+scope = ['https://spreadsheets.google.com/feeds',
+         'https://www.googleapis.com/auth/drive']]
 
 # Create a credentials object using the service account info and scope values
 credentials = service_account.Credentials.from_service_account_info(
