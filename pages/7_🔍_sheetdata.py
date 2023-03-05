@@ -20,7 +20,9 @@ gc = gspread.authorize(credentials)
 sh = gc.open("reg_vendas")
     
 # Access the worksheet within the document with the specified name
-worksheet = sh.worksheet("rg_vendas") 
+worksheet = sh.worksheet("rg_vendas")
+
+conn = connect()
           
 @st.cache(ttl=60)
 def run_query(query):
