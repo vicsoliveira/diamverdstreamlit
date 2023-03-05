@@ -8,5 +8,6 @@ nbserverproxy
 owslib
 streamlit
 gsheetsdb
-google-auth google-auth-oauthlib
+google-auth
+google-auth-oauthlib
 gspread
