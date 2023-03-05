@@ -50,10 +50,9 @@ def read_from_database(res):
        
        
     # Return a success message
-    return 
-        df = pd.DataFrame(rows)
-        print(df.head())
-        st.success("Updated to Database ", icon="✅")\
+    return df = pd.DataFrame(rows)
+    print(df.head())
+    st.success("Updated to Database ", icon="✅")\
 
 # If the "Send to Database" button is clicked, execute the send_to_database() function
 # col2.write("Save in Shared Cloud?")
