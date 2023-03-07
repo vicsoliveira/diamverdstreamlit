@@ -50,13 +50,13 @@ vendas_sheet_u = vendas_sheet.drop_duplicates(subset=['nome'], keep= 'last')
 
 st.write(vendas_sheet_u)
 
-# nome_vendas_sheet = vendas_sheet_u['nome'].values.tolist()
-# idade_vendas_sheet = vendas_sheet_u['idade'].values.tolist()
-# data_ult_vendas_sheet = vendas_sheet_u['data ped'].values.tolist()
+nome_vendas_sheet = vendas_sheet_u['nome'].tolist()
+idade_vendas_sheet = vendas_sheet_u['idade'].tolist()
+data_ult_vendas_sheet = vendas_sheet_u['data ped'].tolist()
 
-# st.write(nome_vendas_sheet)
-# st.write(idade_vendas_sheet)
-# st.write(data_ult_vendas_sheet)
+st.write(nome_vendas_sheet)
+st.write(idade_vendas_sheet)
+st.write(data_ult_vendas_sheet)
 
 # i = 0
 # while i < len(nome_vendas_sheet):
