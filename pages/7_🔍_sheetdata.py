@@ -17,10 +17,6 @@ st.title("SheetData")
 
 # from datetime import datetime
 
-# # Disable certificate verification (Not necessary always)
-# import ssl
-# ssl._create_default_https_context = ssl._create_unverified_context
-
 # Create a Google Authentication connection object
 scope = ['https://spreadsheets.google.com/feeds',
          'https://www.googleapis.com/auth/drive']
@@ -45,17 +41,21 @@ def load_the_spreadsheet(sheetname):
 vendas_sheet = load_the_spreadsheet('rg_vendas')
 st.dataframe(vendas_sheet)
 
-# Update to Sheet
-# def update_the_spreadsheet(sheetname,dataframe):
-#     col = ['nome','idade', 'data_ult']
-#     spread.df_to_sheet(dataframe[col],sheet = sheetname,index = False)
-#     st.sidebar.info('Updated to GoogleSheet')
+Update to Sheet
+def update_the_spreadsheet(sheetname,dataframe):
+    col = ['nome','idade', 'data_ult']
+    spread.df_to_sheet(dataframe[col],sheet = sheetname,index = False)
+    st.sidebar.info('Updated to GoogleSheet')
 
-# opt = {'nome': [cid_entry],'idade': [cid_entry], 'data_ult': [cid_entry]} 
-# opt_df = DataFrame(opt)
-# df = load_the_spreadsheet('client_fre')
-# new_df = df.append(opt_df,ignore_index=True)
-# update_the_spreadsheet('client_fre',new_df)
+nome_vendas_sheet = vendas_sheet['nome'].values.tolist()
+idade_vendas_sheet = vendas_sheet['idade'].values.tolist()
+data_ult_vendas_sheet = vendas_sheet['data ped'].values.tolist()
+
+opt = {'nome': [nome_vendas_sheet],'idade': [idade_vendas_sheet], 'data_ult': [data_ult_vendas_sheet]} 
+opt_df = DataFrame(opt)
+df = load_the_spreadsheet('client_fre')
+new_df = df.append(opt_df,ignore_index=True)
+update_the_spreadsheet('client_fre',new_df)
 
 # st.info(comp_dict[show_me])
 # name = comp_dict['iupac_name']
