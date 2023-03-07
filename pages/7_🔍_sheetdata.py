@@ -48,13 +48,15 @@ def update_the_spreadsheet(sheetname,dataframe):
 
 vendas_sheet_u = vendas_sheet.drop_duplicates(subset=['nome'], keep= 'last')
 
-nome_vendas_sheet = vendas_sheet_u['nome'].values.tolist()
-idade_vendas_sheet = vendas_sheet_u['idade'].values.tolist()
-data_ult_vendas_sheet = vendas_sheet_u['data ped'].values.tolist()
+st.write(vendas_sheet_u)
 
-st.write(nome_vendas_sheet)
-st.write(idade_vendas_sheet)
-st.write(data_ult_vendas_sheet)
+# nome_vendas_sheet = vendas_sheet_u['nome'].values.tolist()
+# idade_vendas_sheet = vendas_sheet_u['idade'].values.tolist()
+# data_ult_vendas_sheet = vendas_sheet_u['data ped'].values.tolist()
+
+# st.write(nome_vendas_sheet)
+# st.write(idade_vendas_sheet)
+# st.write(data_ult_vendas_sheet)
 
 # i = 0
 # while i < len(nome_vendas_sheet):
