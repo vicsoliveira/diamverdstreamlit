@@ -42,7 +42,7 @@ def load_the_spreadsheet(spreadsheetname):
          df = DataFrame(worksheet.get_all_records())
          return df
 
-st.write(df)
+st.dataframe(df)
 
 # # Functions 
 # @st.cache()
