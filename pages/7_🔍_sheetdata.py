@@ -53,8 +53,7 @@ nome_vendas_sheet = vendas_sheet_u['nome'].tolist()
 idade_vendas_sheet = vendas_sheet_u['idade'].tolist()
 data_ult_vendas_sheet = vendas_sheet_u['data ped'].tolist()
 
-st.write(len(nome_vendas_sheet))
-
+st.write(nome_vendas_sheet[0])
 # i = 0
 # while i < len(nome_vendas_sheet):
 #          opt = {'nome_i': [nome_vendas_sheet[i]], 'idade_i': [idade_vendas_sheet[i]], 'data_ult_i': [data_ult_vendas_sheet[i]]} 
