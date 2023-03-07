@@ -42,7 +42,7 @@ st.dataframe(vendas_sheet)
 
 # Update to Sheet
 def update_the_spreadsheet(sheetname,dataframe):
-    col = ['nome','idade', 'data_ult']
+    col = ['nome_i','idade_i', 'data_ult_i']
     spread.df_to_sheet(dataframe[col],sheet = sheetname,index = False)
     st.sidebar.info('Updated to GoogleSheet')
 
@@ -54,7 +54,7 @@ data_ult_vendas_sheet = vendas_sheet_u['data ped'].values.tolist()
 
 i = 0
 while i < len(nome_vendas_sheet):
-         opt = {'nome': [nome_vendas_sheet[i]], 'idade': [idade_vendas_sheet[i]], 'data_ult': [data_ult_vendas_sheet[i]]} 
+         opt = {'nome_i': [nome_vendas_sheet[i]], 'idade_i': [idade_vendas_sheet[i]], 'data_ult_i': [data_ult_vendas_sheet[i]]} 
          opt_df = DataFrame(opt)
          df = load_the_spreadsheet('client_fre')
          new_df = df.append(opt_df,ignore_index=True)
