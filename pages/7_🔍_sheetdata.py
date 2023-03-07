@@ -37,12 +37,16 @@ spread = Spread(spreadsheetname,client = client)
 sh = client.open(spreadsheetname)
 worksheet_list = sh.worksheets()
 
-def load_the_spreadsheet(spreadsheetname):
-         worksheet = sh.worksheet(spreadsheetname)
-         df = DataFrame(worksheet.get_all_records())
-         return df
+st.write(worksheet_list)
+st.write(type(worksheet_list))
 
-st.dataframe(load_the_spreadsheet(spreadsheetname))
+
+# def load_the_spreadsheet(spreadsheetname):
+#          worksheet = sh.worksheet(spreadsheetname)
+#          df = DataFrame(worksheet.get_all_records())
+#          return df
+
+# st.dataframe(load_the_spreadsheet(spreadsheetname))
 
 # # Functions 
 # @st.cache()
