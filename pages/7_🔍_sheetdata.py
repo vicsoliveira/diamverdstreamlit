@@ -32,8 +32,7 @@ spread = Spread(spreadsheetname,client = client)
     
 sh = client.open(spreadsheetname)
 
-
-@st.cache()         
+       
 def load_the_spreadsheet(sheetname):
     worksheet = sh.worksheet(sheetname)
     df = DataFrame(worksheet.get_all_records())
