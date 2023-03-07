@@ -53,14 +53,19 @@ nome_vendas_sheet = vendas_sheet_u['nome'].tolist()
 idade_vendas_sheet = vendas_sheet_u['idade'].tolist()
 data_ult_vendas_sheet = vendas_sheet_u['data ped'].tolist()
 
-i = 0
-while i < len(nome_vendas_sheet):
-         opt = {'nome_i': [nome_vendas_sheet[i]], 'idade_i': [idade_vendas_sheet[i]], 'data_ult_i': [data_ult_vendas_sheet[i]]} 
-         opt_df = DataFrame(opt)
-         df2 = load_the_spreadsheet('client_fre')
-         new_df = df2.append(opt_df,ignore_index=True)
-         i = i+1
-         update_the_spreadsheet('client_fre',new_df)
+vendas_sheet_fre = vendas_sheet['nome', 'data ped'].groupby(['nome'])
+
+st.write(vendas_sheet_fre)
+         
+
+# i = 0
+# while i < len(nome_vendas_sheet):
+#          opt = {'nome_i': [nome_vendas_sheet[i]], 'idade_i': [idade_vendas_sheet[i]], 'data_ult_i': [data_ult_vendas_sheet[i]]} 
+#          opt_df = DataFrame(opt)
+#          df2 = load_the_spreadsheet('client_fre')
+#          new_df = df2.append(opt_df,ignore_index=True)
+#          i = i+1
+#          update_the_spreadsheet('client_fre',new_df)
 
 # st.info(comp_dict[show_me])
 # name = comp_dict['iupac_name']
