@@ -35,7 +35,7 @@ spread = Spread(spreadsheetname,client = client)
 # st.write(spread.url)
     
 sh = client.open(spreadsheetname)
-worksheet_list = sh.worksheets()
+worksheet_list = sh.worksheet(spreadsheetname)
 
 st.write(worksheet_list)
 st.write(type(worksheet_list))
