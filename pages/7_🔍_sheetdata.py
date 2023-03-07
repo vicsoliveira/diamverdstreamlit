@@ -37,10 +37,6 @@ spread = Spread(spreadsheetname,client = client)
 sh = client.open(spreadsheetname)
 worksheet_list = sh.worksheet(spreadsheetname)
 
-
-
-worksheet = sh.worksheet(sheetname)
-df = DataFrame(worksheet.get_all_records())
          
 def load_the_spreadsheet(sheetname):
     worksheet = sh.worksheet(sheetname)
