@@ -9,8 +9,7 @@ from pandas import DataFrame
 from gspread_pandas import Spread,Client
 
 st.title("SheetData")
-# # Application Related Module
-# import pubchempy as pcp
+
 # from pysmiles import read_smiles
 # # 
 # import networkx as nx
@@ -33,48 +32,84 @@ spreadsheetname = "reg_vendas"
 spread = Spread(spreadsheetname,client = client)
 
 # Check the connection
-st.write(spread.url)
-
-# st.title("SheetData")
-
-# scope = ['https://spreadsheets.google.com/feeds',
-#          'https://www.googleapis.com/auth/drive']
-
-# # Create a credentials object using the service account info and scope values
-# credentials = service_account.Credentials.from_service_account_info(
-#     st.secrets["gcp_service_account"], scopes = scope)
+# st.write(spread.url)
     
-# # Authorize the connection to Google Sheets using the credentials object
-# gc = gspread.authorize(credentials)
+sh = client.open(spreadsheetname)
+worksheet_list = sh.worksheets()
+
+def load_the_spreadsheet(spreadsheetname):
+         worksheet = sh.worksheet(spreadsheetname)
+         df = DataFrame(worksheet.get_all_records())
+         return df
+
+st.write(df)
+
+# # Functions 
+# @st.cache()
+# # Get our worksheet names
+# def worksheet_names():
+#     sheet_names = []   
+#     for sheet in worksheet_list:
+#         sheet_names.append(sheet.title)  
+#     return sheet_names
+
+# # Get the sheet as dataframe
+# def load_the_spreadsheet(spreadsheetname):
+#     worksheet = sh.worksheet(spreadsheetname)
+#     df = DataFrame(worksheet.get_all_records())
+#     return df
+
+# # Update to Sheet
+# def update_the_spreadsheet(spreadsheetname,dataframe):
+#     col = ['Compound CID','Time_stamp']
+#     spread.df_to_sheet(dataframe[col],sheet = spreadsheetname,index = False)
+#     st.sidebar.info('Updated to GoogleSheet')
+
+
+# st.header('Streamlit Chemical Inventory')
+
+# # Check whether the sheets exists
+# what_sheets = worksheet_names()
+# #st.sidebar.write(what_sheets)
+# ws_choice = st.sidebar.radio('Available worksheets',what_sheets)
+
+# # Load data from worksheets
+# df = load_the_spreadsheet(ws_choice)
+# # Show the availibility as selection
+# select_CID = st.sidebar.selectbox('CID',list(df['Compound CID']))
+
+# # Now we can use the pubchempy module to dump information
+# comp = pcp.Compound.from_cid(select_CID)
+# comp_dict = comp.to_dict() # Converting to a dictinoary
+# # What Information look for ?
+# options = ['molecular_weight' ,'molecular_formula',
+#            'charge','atoms','elements','bonds']
+# show_me = st.radio('What you want to see?',options)
+
+# st.info(comp_dict[show_me])
+# name = comp_dict['iupac_name']
+# st.markdown(name)
+# plot = st.checkbox('Canonical Smiles Plot')
+
+# if plot:
+#     sm = comp_dict['canonical_smiles']
+#     mol = read_smiles(comp_dict['canonical_smiles']) 
+#     elements = nx.get_node_attributes(mol, name = "element")
+#     nx.draw(mol, with_labels=True, labels = elements, pos=nx.spring_layout(mol))
+#     fig , ax = plt.subplots()
+#     nx.draw(mol, with_labels=True, labels = elements, pos = nx.spring_layout(mol))
+#     st.pyplot(fig)
+
+# add = st.sidebar.checkbox('Add CID')
+# if add :  
+#     cid_entry = st.sidebar.text_input('New CID')
+#     confirm_input = st.sidebar.button('Confirm')
     
-# # Open the Google Sheets document with the specified name
-# sh = gc.open("reg_vendas")
-    
-# # Access the worksheet within the document with the specified name
-# worksheet = sh.worksheet("rg_vendas")
-
-# conn = connect()
-          
-# @st.cache(ttl=60)
-# def run_query(query):
-#     rows = conn.execute(query, headers=1)
-#     rows = rows.fetchall()
-#     return rows
-        
-
-# col1, col2 = st.columns([1, 3])
-
-# sheet_url = st.secrets["private_gsheets_url"]
-# rows = run_query(f'SELECT * FROM "{sheet_url}"')
-
-# df = pd.DataFrame(rows)
-
-# with col1:
-#     st.header("Data Table")
-#     st.dataframe(df)
-        
-     
-# # If the "Send to Database" button is clicked, execute the send_to_database() function
-# # col2.write("Save in Shared Cloud?")
-# # if col2.button("Send to Database"):
-# #     send_to_database(res)
+#     if confirm_input:
+#         now = datetime.now()
+#         opt = {'Compound CID': [cid_entry],
+#               'Time_stamp' :  [now]} 
+#         opt_df = DataFrame(opt)
+#         df = load_the_spreadsheet('Pending CID')
+#         new_df = df.append(opt_df,ignore_index=True)
+#         update_the_spreadsheet('Pending CID',new_df)
