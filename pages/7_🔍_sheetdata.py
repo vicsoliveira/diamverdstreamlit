@@ -46,14 +46,19 @@ def update_the_spreadsheet(sheetname,dataframe):
     spread.df_to_sheet(dataframe[col],sheet = sheetname,index = False)
     st.sidebar.info('Updated to GoogleSheet')
 
-nome_vendas_sheet = vendas_sheet['nome'].values.tolist()
-idade_vendas_sheet = vendas_sheet['idade'].values.tolist()
-data_ult_vendas_sheet = vendas_sheet['data ped'].values.tolist()
+vendas_sheet_u = vendas_sheet.drop_duplicates(subset=['nome'], keep= 'last')
 
-opt = {'nome': [nome_vendas_sheet], 'idade': [idade_vendas_sheet], 'data_ult': [data_ult_vendas_sheet]} 
-opt_df = DataFrame(opt)
-df = load_the_spreadsheet('client_fre')
-new_df = df.append(opt_df,ignore_index=True)
+nome_vendas_sheet = vendas_sheet_u['nome'].values.tolist()
+idade_vendas_sheet = vendas_sheet_u['idade'].values.tolist()
+data_ult_vendas_sheet = vendas_sheet_u['data ped'].values.tolist()
+
+i = 0
+while i < len(nome_vendas_sheet):
+         opt = {'nome': [nome_vendas_sheet[i]], 'idade': [idade_vendas_sheet[i]], 'data_ult': [data_ult_vendas_sheet[i]]} 
+         opt_df = DataFrame(opt)
+         df = load_the_spreadsheet('client_fre')
+         new_df = df.append(opt_df,ignore_index=True)
+         i = i+1
 update_the_spreadsheet('client_fre',new_df)
 
 # st.info(comp_dict[show_me])
