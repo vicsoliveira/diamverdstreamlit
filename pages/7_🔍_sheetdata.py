@@ -41,7 +41,7 @@ def load_the_spreadsheet(sheetname):
 vendas_sheet = load_the_spreadsheet('rg_vendas')
 st.dataframe(vendas_sheet)
 
-Update to Sheet
+# Update to Sheet
 def update_the_spreadsheet(sheetname,dataframe):
     col = ['nome','idade', 'data_ult']
     spread.df_to_sheet(dataframe[col],sheet = sheetname,index = False)
