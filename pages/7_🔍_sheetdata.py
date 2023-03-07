@@ -39,12 +39,14 @@ worksheet_list = sh.worksheet(spreadsheetname)
 
 
 
+worksheet = sh.worksheet(sheetname)
+df = DataFrame(worksheet.get_all_records())
+         
 def load_the_spreadsheet(sheetname):
-         worksheet = sh.worksheet(sheetname)
-         df = DataFrame(worksheet.get_all_records())
-         return df
-
-st.dataframe(load_the_spreadsheet("rg_vendas"))
+    worksheet = sh.worksheet(sheetname)
+    df = DataFrame(worksheet.get_all_records())
+    return df
+st.dataframe(load_the_spreadsheet('rg_vendas'))
 
 # # Functions 
 # @st.cache()
