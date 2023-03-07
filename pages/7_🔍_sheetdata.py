@@ -51,7 +51,7 @@ nome_vendas_sheet = vendas_sheet['nome'].values.tolist()
 idade_vendas_sheet = vendas_sheet['idade'].values.tolist()
 data_ult_vendas_sheet = vendas_sheet['data ped'].values.tolist()
 
-opt = {'nome': [nome_vendas_sheet],'idade': [idade_vendas_sheet], 'data_ult': [data_ult_vendas_sheet]} 
+opt = {'nome': [nome_vendas_sheet], 'idade': [idade_vendas_sheet], 'data_ult': [data_ult_vendas_sheet]} 
 opt_df = DataFrame(opt)
 df = load_the_spreadsheet('client_fre')
 new_df = df.append(opt_df,ignore_index=True)
