@@ -54,12 +54,15 @@ idade_vendas_sheet = vendas_sheet_u['idade'].tolist()
 data_ult_vendas_sheet = vendas_sheet_u['data ped'].tolist()
 
 vendas_sheet_dat = vendas_sheet[['nome', 'data ped']].copy()
-# vendas_sheet_fre = vendas_sheet_gr['nome', 'data ped']
+
+data_u = []
+for name in nome_vendas_sheet:
+         rows = vendas_sheet_dat.loc[vendas_sheet_dat['nome'] == name]
+         data_u.append(rows['data ped'].tolist())
+         
+st.write(data_u)
 
 
-vendas_sheet_gr = vendas_sheet_dat.groupby('nome', group_keys=True).apply(lambda x: x)
-
-st.write(vendas_sheet_gr)
 
 # i = 0
 # while i < len(nome_vendas_sheet):
