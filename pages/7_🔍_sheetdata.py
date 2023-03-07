@@ -53,10 +53,13 @@ nome_vendas_sheet = vendas_sheet_u['nome'].tolist()
 idade_vendas_sheet = vendas_sheet_u['idade'].tolist()
 data_ult_vendas_sheet = vendas_sheet_u['data ped'].tolist()
 
-vendas_sheet_fre = vendas_sheet['nome', 'data ped'].groupby(['nome'])
+vendas_sheet_dat = vendas_sheet['nome', 'data ped']
+# vendas_sheet_fre = vendas_sheet_gr['nome', 'data ped']
 
-st.write(vendas_sheet_fre)
-         
+
+vendas_sheet_gr = vendas_sheet_dat.groupby('nome', group_keys=True).apply(lambda x: x)
+
+st.write(vendas_sheet_gr)
 
 # i = 0
 # while i < len(nome_vendas_sheet):
