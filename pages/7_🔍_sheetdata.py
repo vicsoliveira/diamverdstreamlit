@@ -35,56 +35,27 @@ spread = Spread(spreadsheetname,client = client)
 # st.write(spread.url)
     
 sh = client.open(spreadsheetname)
-# worksheet_list = sh.worksheet(spreadsheetname)
 
-         
+
+@st.cache()         
 def load_the_spreadsheet(sheetname):
     worksheet = sh.worksheet(sheetname)
     df = DataFrame(worksheet.get_all_records())
     return df
-st.dataframe(load_the_spreadsheet('rg_vendas'))
+vendas_sheet = load_the_spreadsheet('rg_vendas')
+st.dataframe(vendas_sheet)
 
-# # Functions 
-# @st.cache()
-# # Get our worksheet names
-# def worksheet_names():
-#     sheet_names = []   
-#     for sheet in worksheet_list:
-#         sheet_names.append(sheet.title)  
-#     return sheet_names
-
-# # Get the sheet as dataframe
-# def load_the_spreadsheet(spreadsheetname):
-#     worksheet = sh.worksheet(spreadsheetname)
-#     df = DataFrame(worksheet.get_all_records())
-#     return df
-
-# # Update to Sheet
-# def update_the_spreadsheet(spreadsheetname,dataframe):
-#     col = ['Compound CID','Time_stamp']
-#     spread.df_to_sheet(dataframe[col],sheet = spreadsheetname,index = False)
+# Update to Sheet
+# def update_the_spreadsheet(sheetname,dataframe):
+#     col = ['nome','idade', 'data_ult']
+#     spread.df_to_sheet(dataframe[col],sheet = sheetname,index = False)
 #     st.sidebar.info('Updated to GoogleSheet')
 
-
-# st.header('Streamlit Chemical Inventory')
-
-# # Check whether the sheets exists
-# what_sheets = worksheet_names()
-# #st.sidebar.write(what_sheets)
-# ws_choice = st.sidebar.radio('Available worksheets',what_sheets)
-
-# # Load data from worksheets
-# df = load_the_spreadsheet(ws_choice)
-# # Show the availibility as selection
-# select_CID = st.sidebar.selectbox('CID',list(df['Compound CID']))
-
-# # Now we can use the pubchempy module to dump information
-# comp = pcp.Compound.from_cid(select_CID)
-# comp_dict = comp.to_dict() # Converting to a dictinoary
-# # What Information look for ?
-# options = ['molecular_weight' ,'molecular_formula',
-#            'charge','atoms','elements','bonds']
-# show_me = st.radio('What you want to see?',options)
+# opt = {'nome': [cid_entry],'idade': [cid_entry], 'data_ult': [cid_entry]} 
+# opt_df = DataFrame(opt)
+# df = load_the_spreadsheet('client_fre')
+# new_df = df.append(opt_df,ignore_index=True)
+# update_the_spreadsheet('client_fre',new_df)
 
 # st.info(comp_dict[show_me])
 # name = comp_dict['iupac_name']
