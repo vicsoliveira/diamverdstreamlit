@@ -59,9 +59,9 @@ st.write(vendas_sheet_dat)
 data_u = []
 for name in nome_vendas_sheet:
          rows = vendas_sheet_dat.loc[vendas_sheet_dat['nome'] == name]
-#          data_u.append(rows['nome','data ped'].tolist())
+         data_u.append(rows['nome'].tolist(), rows['data ped'].tolist())
          
-st.write(rows)
+st.write(data_u)
 
 
 
