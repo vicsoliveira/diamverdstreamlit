@@ -65,11 +65,12 @@ for name in nome_vendas_sheet:
 
 i=0
 while i < len(nome_vendas_sheet):
-         data_(i) = []
-         data_(i) = data_(i).append({data_u[i] : data_u[i+1]})
-         i=i +1
+         data_i = []
+         data_i = data_i.append({data_u[i] : data_u[i+1]})
+         i=i +2
 
-st.write(data_0)
+
+st.write(data_i)
          
 # st.write(data_u2)
 
