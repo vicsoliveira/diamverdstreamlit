@@ -63,12 +63,13 @@ for name in nome_vendas_sheet:
          data_u.append(rows['data ped'].tolist())
          data_u.append(rows['nome'].tolist())
 
-st.write(data_u[0])
-# i=0
-# data_u2 = []
-# while i<len(data_u):
-#          data_u2 = data_u2.append({data_u[i] : data_u[i+1]})
-#          i=i +1
+i=0
+while i < len(nome_vendas_sheet):
+         'data_'+'i' = []
+        ' data_'+'i' = data_i.append({data_u[i] : data_u[i+1]})
+         i=i +1
+
+st.write(data_0)
          
 # st.write(data_u2)
 
