@@ -35,7 +35,7 @@ sh = client.open(spreadsheetname)
        
 def load_the_spreadsheet(sheetname):
     worksheet = sh.worksheet(sheetname)
-    df = DataFrame(worksheet.get_all_records())
+    df = DataFrame(worksheet.get_all_records(), index = False)
     return df
 vendas_sheet = load_the_spreadsheet('rg_vendas')
 st.dataframe(vendas_sheet)
@@ -53,7 +53,7 @@ nome_vendas_sheet = vendas_sheet_u['nome'].tolist()
 idade_vendas_sheet = vendas_sheet_u['idade'].tolist()
 data_ult_vendas_sheet = vendas_sheet_u['data ped'].tolist()
 
-vendas_sheet_dat = vendas_sheet.iloc[:,['nome', 'data ped']].copy()
+vendas_sheet_dat = vendas_sheet.[['nome', 'data ped']].copy()
 
 st.write(vendas_sheet_dat)
 # data_u = []
