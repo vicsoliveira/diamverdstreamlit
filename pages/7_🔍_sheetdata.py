@@ -35,7 +35,7 @@ sh = client.open(spreadsheetname)
        
 def load_the_spreadsheet(sheetname):
     worksheet = sh.worksheet(sheetname)
-    df = DataFrame(worksheet.get_all_records(), index = False)
+    df = DataFrame(worksheet.get_all_records())
     return df
 vendas_sheet = load_the_spreadsheet('rg_vendas')
 st.dataframe(vendas_sheet)
@@ -56,12 +56,12 @@ data_ult_vendas_sheet = vendas_sheet_u['data ped'].tolist()
 vendas_sheet_dat = vendas_sheet[['nome', 'data ped']].copy()
 
 st.write(vendas_sheet_dat)
-# data_u = []
-# for name in nome_vendas_sheet:
-#          rows = vendas_sheet_dat.loc[vendas_sheet_dat['nome'] == name]
-#          data_u.append(rows['data ped'].tolist(index = False))
+data_u = []
+for name in nome_vendas_sheet:
+         rows = vendas_sheet_dat.loc[vendas_sheet_dat['nome'] == name]
+         data_u.append(rows['data ped'].tolist())
          
-# st.write(data_u)
+st.write(data_u)
 
 
 
