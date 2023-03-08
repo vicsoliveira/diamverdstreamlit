@@ -53,7 +53,7 @@ nome_vendas_sheet = vendas_sheet_u['nome'].tolist()
 idade_vendas_sheet = vendas_sheet_u['idade'].tolist()
 data_ult_vendas_sheet = vendas_sheet_u['data ped'].tolist()
 
-vendas_sheet_dat = vendas_sheet.[['nome', 'data ped']].copy()
+vendas_sheet_dat = vendas_sheet[['nome', 'data ped']].copy()
 
 st.write(vendas_sheet_dat)
 # data_u = []
