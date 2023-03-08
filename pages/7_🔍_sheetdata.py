@@ -66,7 +66,7 @@ for name in nome_vendas_sheet:
 i=0
 data_u2 = []
 while i<len(data_u):
-         data_u2 = data_u2.append(dict(data_u[i] = data_u[i+1])
+         data_u2 = data_u2.append({data_u[i] : data_u[i+1]})
          i=i +1
          
 st.write(data_u2)
