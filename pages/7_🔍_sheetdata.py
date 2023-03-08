@@ -55,15 +55,18 @@ data_ult_vendas_sheet = vendas_sheet_u['data ped'].tolist()
 
 vendas_sheet_dat = vendas_sheet[['nome', 'data ped']].copy()
 
+vendas_sheet_g = vendas_sheet_dat.groupby('nome')
+
 st.write(vendas_sheet_dat)
 data_u = []
 for name in nome_vendas_sheet:
          rows = vendas_sheet_dat.loc[vendas_sheet_dat['nome'] == name]
-         rows_g = rows.groupby('nome')
-#          data_u.append(rows['data ped'].tolist())
-#          data_u.append(rows['nome'].tolist())
+         data_u.append(rows['data ped'].tolist())
+         data_u.append(rows['nome'].tolist())
          
-st.write(rows_g)
+st.write(data_u)
+st.write(vendas_sheet_g)
+
 
 
 
