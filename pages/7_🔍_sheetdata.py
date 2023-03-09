@@ -4,21 +4,17 @@ from google.oauth2 import service_account
 import gspread
 import pandas as pd
 
+import plotly.figure_factory as ff
+import plotly.graph_objects as go
+
 from pandas import DataFrame
-
 from gspread_pandas import Spread,Client
-
 from statistics import mean
-
 from datetime import datetime, timedelta
 
+
+
 st.title("SheetData")
-
-# from pysmiles import read_smiles
-# # 
-# import networkx as nx
-# import matplotlib.pyplot as plt
-
 
 
 # Create a Google Authentication connection object
@@ -44,6 +40,17 @@ def load_the_spreadsheet(sheetname):
 vendas_sheet = load_the_spreadsheet('rg_vendas')
 st.dataframe(vendas_sheet)
 
+quantcount = vendas_sheet.groupby('quant').count()
+
+fig_quant = go.Figure(data=[
+    go.Bar(name='target=0', x=cat0['quant'], y=quantcount)
+])
+# left_column, right_column = st.columns(2)
+# left_column.subheader('Frequência da quantidade de pedidos')
+st.plotly_chart(fig_quant)
+
+
+
 vendas_sheet_u = vendas_sheet.drop_duplicates(subset=['nome'], keep= 'last')
 
 
@@ -54,7 +61,7 @@ data_ult_vendas_sheet = vendas_sheet_u['data ped'].tolist()
 vendas_sheet_dat = vendas_sheet[['nome', 'data ped']].copy()
 
 
-st.write(vendas_sheet_dat)
+
 data_u = []
 for name in nome_vendas_sheet:
          rows = vendas_sheet_dat.loc[vendas_sheet_dat['nome'] == name]
@@ -113,7 +120,6 @@ while i < len(data_i):
          data_i[i] = d
          i = i +1
 
-st.write(data_i)
 
 # Update to Sheet
 def update_the_spreadsheet(sheetname,dataframe):
@@ -134,6 +140,9 @@ while i < len(nome_vendas_sheet):
          new_df = df.append(opt_df,ignore_index=True)
          update_the_spreadsheet('client_fre',new_df)
          i = i+1
+         
+   
+
 
 
 # st.info(comp_dict[show_me])
