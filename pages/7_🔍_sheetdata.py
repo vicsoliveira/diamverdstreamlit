@@ -71,18 +71,12 @@ while i < (2*len(nome_vendas_sheet)):
          data_i.append({n1 : n2})
          i=i +2
 
-# n = data_u[1]
-# n1 = n[0]
-# # n2 = n1.get(1)
-# # n3 = n2[0]
-# # n4 = n1.get(0)
-# st.write(n1)
+d = data_i[0]
 
-# n2 = data_u[8]
-# n3 = n2[0]
+
 st.write(data_i)
-         
-# st.write(data_u2)
+st.write(d)         
+
 
 # i = 0
 # while i < len(nome_vendas_sheet):
