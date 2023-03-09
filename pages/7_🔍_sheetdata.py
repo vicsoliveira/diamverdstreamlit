@@ -68,9 +68,15 @@ while i < len(vendas_sheet['valor'].tolist()):
          
 quantcount2 = vendas_sheet.groupby(['quant'])['valor'].sum().reset_index(name='faturamento')
 
+while i < len(quantcount2['faturamento'].tolist()):
+         f = quantcount2.iloc[i]['faturamento']
+         x = f'R$ {str(f)}'.replace(".", ",")
+         quantcount2['faturamento'] = quantcount2['faturamento'].replace(f, x)
+         i=i+1
+
 
 fig_quant2 = go.Figure(data=[
-    go.Bar(name='Pedidos', x=quantcount2['quant'], y=f'R$ {quantcount2['faturamento']}'.replace(".", ","))
+    go.Bar(name='Pedidos', x=quantcount2['quant'], y=quantcount2['faturamento'])
 ])
 
 fig_quant2.update_layout(title_x = 0.5,
