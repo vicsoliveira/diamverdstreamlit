@@ -68,7 +68,7 @@ while i < len(nome_vendas_sheet):
          n = data_u[i+1]
          n1 = n[0]
          n2 = data_u[i]
-         data_i = data_i.append({n1 : n2})
+         data_i.append({n1 : n2})
          i=i +2
 
 # n = data_u[1]
