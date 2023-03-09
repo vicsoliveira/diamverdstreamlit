@@ -72,10 +72,11 @@ while i < (2*len(nome_vendas_sheet)):
          i=i +2
 
 d = data_i[0]
+d1 = d.values()
 
 
 st.write(data_i)
-st.write(d)         
+st.write(d1)         
 
 
 # i = 0
