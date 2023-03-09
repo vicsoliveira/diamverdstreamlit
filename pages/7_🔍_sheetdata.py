@@ -10,7 +10,7 @@ from gspread_pandas import Spread,Client
 
 from statistics import mean
 
-from datetime import datetime
+from datetime import datetime, timedelta
 
 st.title("SheetData")
 
@@ -114,7 +114,7 @@ while i < len(data_i):
          d1 = list(d.values())
          dt= d1[0]
          u = datetime.strptime(dt[-1], "%d/%m/%Y")
-         x = u + d['fre']
+         x = u + timedelta(days=d['fre'])
          d['prox'] = x
          data_i[i] = d
          i = i +1
