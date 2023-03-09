@@ -71,7 +71,7 @@ while i < (2*len(nome_vendas_sheet)):
          data_i.append({n1 : n2})
          i=i +2
 
-d = data_i[0]
+d = data_i[7]
 d1 = list(d.values())
 
 dt= d1[0]
@@ -80,12 +80,12 @@ while i < len(dt):
          dt[i] = dtf
          i = i+1
 
-
+res = (dt[0] - dt[1]).days
 # difference between dates in timedelta
 # delta = d2 - d1
 
 st.write(data_i)
-st.write(type(dt[0]))         
+st.write(res)         
 
 
 # i = 0
