@@ -79,7 +79,8 @@ dt= d1[0]
 i=0
 res=[]
 while i < (len(dt)-1):
-         res.append((datetime.strptime(dt[i+1], "%d/%m/%Y") - datetime.strptime(dt[i], "%d/%m/%Y")).days
+         x = (datetime.strptime(dt[i+1], "%d/%m/%Y") - datetime.strptime(dt[i], "%d/%m/%Y")).days
+         res.append(int(x))     
          i=i +1           
 
 
