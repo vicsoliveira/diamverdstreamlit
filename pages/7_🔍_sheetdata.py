@@ -44,12 +44,6 @@ def load_the_spreadsheet(sheetname):
 vendas_sheet = load_the_spreadsheet('rg_vendas')
 st.dataframe(vendas_sheet)
 
-# Update to Sheet
-def update_the_spreadsheet(sheetname,dataframe):
-    col = ['nome_i','idade_i', 'data_ult_i']
-    spread.df_to_sheet(dataframe[col],sheet = sheetname,index = False)
-    st.sidebar.info('Updated to GoogleSheet')
-
 vendas_sheet_u = vendas_sheet.drop_duplicates(subset=['nome'], keep= 'last')
 
 
@@ -120,12 +114,18 @@ while i < len(data_i):
          i = i +1
 
 st.write(data_i)
+
+# Update to Sheet
+def update_the_spreadsheet(sheetname,dataframe):
+    col = ['nome_i','idade_i','freq', 'data_ult_i', 'data_prox_i']
+    spread.df_to_sheet(dataframe[col],sheet = sheetname,index = False)
+    st.sidebar.info('Updated to GoogleSheet')
+
+
          
-
-
 # i = 0
 # while i < len(nome_vendas_sheet):
-#          opt = {'nome_i': [nome_vendas_sheet[i]], 'idade_i': [idade_vendas_sheet[i]], 'data_ult_i': [data_ult_vendas_sheet[i]]} 
+#          opt = {'nome_i': [nome_vendas_sheet[i]], 'idade_i': [idade_vendas_sheet[i]], 'freq': [], 'data_ult_i': [data_ult_vendas_sheet[i]], 'data_prox_i': []} 
 #          opt_df = DataFrame(opt)
 #          df2 = load_the_spreadsheet('client_fre')
 #          new_df = df2.append(opt_df,ignore_index=True)
