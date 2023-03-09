@@ -64,7 +64,7 @@ for name in nome_vendas_sheet:
          data_u.append(rows['nome'].tolist())
 data_i = []
 i=0
-while i < len(nome_vendas_sheet):
+while i < (2*len(nome_vendas_sheet)):
          n = data_u[i+1]
          n1 = n[0]
          n2 = data_u[i]
