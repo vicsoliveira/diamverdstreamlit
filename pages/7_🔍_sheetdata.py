@@ -60,7 +60,8 @@ fig_quant.update_layout(title_x = 0.5,
 st.plotly_chart(fig_quant)
 
 quantcount2 = vendas_sheet.groupby(['quant'])['valor'].sum().reset_index(name='faturamento')
-
+quantcount2['faturamento'] = quantcount2['faturamento'].replace("R$ ", "").replace(".", "")
+quantcount2['faturamento'] = float(quantcount2['faturamento'].replace(",", "."))
 
 fig_quant2 = go.Figure(data=[
     go.Bar(name='Pedidos', x=quantcount2['quant'], y=quantcount2['faturamento'])
