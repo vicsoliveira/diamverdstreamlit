@@ -56,7 +56,9 @@ fig_quant.update_layout(title_x = 0.5,
                 dtick=1
             )
                     )
-
+fig_quant.update_layout(height=300,
+                       width=1000,
+                       margin={'l': 20, 'r': 20, 't': 0, 'b': 0})
 
 i=0
 while i < len(vendas_sheet['valor'].tolist()):
@@ -88,6 +90,9 @@ fig_quant2.update_layout(title_x = 0.5,
                 dtick=1
             )
                     )
+fig_quant2.update_layout(height=300,
+                       width=1000,
+                       margin={'l': 20, 'r': 20, 't': 0, 'b': 0})
 
 
 left_column, right_column = st.columns(2)
