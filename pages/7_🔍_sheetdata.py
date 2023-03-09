@@ -53,9 +53,9 @@ layout = go.Layout(title_x = 0.5,
             )
                     )
 
-fig_quant = go.Figure(data=[
+fig_quant = go.Figure((data=[
     go.Bar(name='Pedidos', x=quantcount['quant'], y=quantcount['counts'])
-], layout)
+]), layout)
 
 st.plotly_chart(fig_quant)
 
