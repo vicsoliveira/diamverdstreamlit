@@ -108,6 +108,17 @@ while i < len(data_i):
          data_i[i] = d
          i = i +1
          
+i = 0
+while i < len(data_i):
+         d = data_i[i]
+         d1 = list(d.values())
+         dt= d1[0]
+         u = datetime.strptime(dt[-1], "%d/%m/%Y")
+         x = u + d['fre']
+         d['prox'] = x
+         data_i[i] = d
+         i = i +1
+
 st.write(data_i)
          
 
