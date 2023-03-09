@@ -40,10 +40,10 @@ def load_the_spreadsheet(sheetname):
 vendas_sheet = load_the_spreadsheet('rg_vendas')
 st.dataframe(vendas_sheet)
 
-quantcount = vendas_sheet.groupby('quant').count()
+quantcount = vendas_sheet.groupby(['quant'])['quant'].count().reset_index(name='counts')
 
 fig_quant = go.Figure(data=[
-    go.Bar(name='target=0', x=cat0['quant'], y=quantcount)
+    go.Bar(name='Pedidos', x=quantcount['quant'], y=quantcount['counts'])
 ])
 # left_column, right_column = st.columns(2)
 # left_column.subheader('Frequência da quantidade de pedidos')
