@@ -8,6 +8,10 @@ from pandas import DataFrame
 
 from gspread_pandas import Spread,Client
 
+from statistics import mean
+
+from datetime import datetime
+
 st.title("SheetData")
 
 # from pysmiles import read_smiles
@@ -15,7 +19,7 @@ st.title("SheetData")
 # import networkx as nx
 # import matplotlib.pyplot as plt
 
-from datetime import datetime
+
 
 # Create a Google Authentication connection object
 scope = ['https://spreadsheets.google.com/feeds',
@@ -82,10 +86,10 @@ while i < len(data_i):
          while j < (len(dt)-1):
                   x = (datetime.strptime(dt[j+1], "%d/%m/%Y") - datetime.strptime(dt[j], "%d/%m/%Y")).days
                   res.append(int(x))
-                  fremed = round(Average(res), 0)
-                  d[fre] = fremed
-                  data_i[i] = d
                   j=j +1
+         fremed = round(mean(res), 0)
+         d[fre] = fremed
+         data_i[i] = d
          i = i +1
 
 
