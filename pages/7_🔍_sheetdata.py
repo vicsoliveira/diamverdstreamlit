@@ -63,6 +63,7 @@ for name in nome_vendas_sheet:
          data_u.append(rows['data ped'].tolist())
          data_u.append(rows['nome'].tolist())
 data_i = []
+
 i=0
 while i < (2*len(nome_vendas_sheet)):
          n = data_u[i+1]
@@ -77,7 +78,7 @@ d1 = list(d.values())
 dt= d1[0]
 i=0
 res=[]
-while (i+1) < len(dt):
+while i < (len(dt)-1):
          res.append((datetime.strptime(dt[i+1], "%d/%m/%Y") - datetime.strptime(dt[i], "%d/%m/%Y")).days
          i = i+1
 
