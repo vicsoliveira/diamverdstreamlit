@@ -15,7 +15,7 @@ st.title("SheetData")
 # import networkx as nx
 # import matplotlib.pyplot as plt
 
-# from datetime import datetime
+from datetime import datetime
 
 # Create a Google Authentication connection object
 scope = ['https://spreadsheets.google.com/feeds',
@@ -74,9 +74,18 @@ while i < (2*len(nome_vendas_sheet)):
 d = data_i[0]
 d1 = list(d.values())
 
+dt= d1[0]
+while i < len(dt):
+         dtf = datetime.strptime(dt[i], "%d/%m/%Y")
+         dt[i] = dtf
+         i = i+1
+
+
+# difference between dates in timedelta
+# delta = d2 - d1
 
 st.write(data_i)
-st.write(d1)         
+st.write(dt)         
 
 
 # i = 0
