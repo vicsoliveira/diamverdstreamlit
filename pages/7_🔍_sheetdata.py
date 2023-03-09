@@ -64,7 +64,7 @@ while i < len(vendas_sheet['valor'].tolist()):
          f = str(vendas_sheet.iloc[i]['valor'])
          x = f.replace("R$ ", "").replace(".", "").replace(",", ".")
          x = float(x)
-         vendas_sheet['valor'].replace(f, x)
+         vendas_sheet['valor'] = vendas_sheet['valor'].replace(f, x)
          i=i+1
          
 quantcount2 = vendas_sheet.groupby(['quant'])['valor'].sum().reset_index(name='faturamento')
