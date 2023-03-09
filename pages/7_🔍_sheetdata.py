@@ -76,7 +76,7 @@ n1 = n[0]
 # n4 = n1.get(0)
 st.write(n1)
 
-n2 = data_u[0]
+n2 = data_u[8]
 n3 = n2[0]
 st.write(n3)
          
