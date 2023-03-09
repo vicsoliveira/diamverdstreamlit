@@ -70,10 +70,11 @@ for name in nome_vendas_sheet:
 #          i=i +2
 
 n = data_u[1]
-n1 = n.get(1)
-n2 = n1[0]
-n3 = n2.get(0)
-st.write(n3)
+n1 = n[0]
+n2 = n1.get(1)
+n3 = n2[0]
+n4 = n1.get(0)
+st.write(n4)
          
 # st.write(data_u2)
 
