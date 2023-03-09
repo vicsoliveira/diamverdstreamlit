@@ -72,7 +72,7 @@ while i < (2*len(nome_vendas_sheet)):
          data_i.append({n1 : n2})
          i=i +2
 
-d = data_i[7]
+d = data_i[8]
 d1 = list(d.values())
 
 dt= d1[0]
