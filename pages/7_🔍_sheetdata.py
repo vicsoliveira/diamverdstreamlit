@@ -57,7 +57,6 @@ fig_quant.update_layout(title_x = 0.5,
             )
                     )
 
-st.plotly_chart(fig_quant)
 
 i=0
 while i < len(vendas_sheet['valor'].tolist()):
@@ -69,8 +68,9 @@ while i < len(vendas_sheet['valor'].tolist()):
          
 quantcount2 = vendas_sheet.groupby(['quant'])['valor'].sum().reset_index(name='faturamento')
 
+
 fig_quant2 = go.Figure(data=[
-    go.Bar(name='Pedidos', x=quantcount2['quant'], y=quantcount2['faturamento'])
+    go.Bar(name='Pedidos', x=quantcount2['quant'], y=f'R$ {quantcount2['faturamento']}'.replace(".", ","))
 ])
 
 fig_quant2.update_layout(title_x = 0.5,
@@ -83,7 +83,14 @@ fig_quant2.update_layout(title_x = 0.5,
             )
                     )
 
-st.plotly_chart(fig_quant2)
+
+left_column, right_column = st.columns(2)
+left_column.subheader('Frequência de Pedidos')
+right_column.subheader('Faturamento por frequência de pedidos')
+left_column.plotly_chart(fig_quant)
+right_column.plotly_chart(fig_quant2)
+
+
 
 
 
