@@ -59,6 +59,25 @@ fig_quant.update_layout(title_x = 0.5,
 
 st.plotly_chart(fig_quant)
 
+quantcount2 = vendas_sheet.groupby(['quant'])['valor'].sum().reset_index(name='valor')
+
+
+fig_quant2 = go.Figure(data=[
+    go.Bar(name='Pedidos', x=quantcount2['quant'], y=quantcount2['valor'])
+])
+
+fig_quant2.update_layout(title_x = 0.5,
+                   title = 'Faturamento',
+                  hovermode = 'x',
+                   xaxis=dict(
+                tickmode='linear',
+                tick0=1,
+                dtick=1
+            )
+                    )
+
+st.plotly_chart(fig_quant2)
+
 
 
 vendas_sheet_u = vendas_sheet.drop_duplicates(subset=['nome'], keep= 'last')
