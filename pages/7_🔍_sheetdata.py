@@ -131,9 +131,9 @@ while i < len(nome_vendas_sheet):
          dt1 = d1[0]
          opt = {'nome_i': [dt1], 'freq': [d['fre']], 'data_ult_i': [d['ult']], 'data_prox_i': [d['prox']]} 
          opt_df = DataFrame(opt)
-         new_df = df.append(opt_df,ignore_index=True)
+         df.append(opt_df,ignore_index=True)
          i = i+1
-update_the_spreadsheet('client_fre',new_df)
+update_the_spreadsheet('client_fre',df)
 
 # st.info(comp_dict[show_me])
 # name = comp_dict['iupac_name']
