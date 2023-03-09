@@ -60,7 +60,7 @@ fig_quant.update_layout(title_x = 0.5,
 st.plotly_chart(fig_quant)
 
 i=0
-while i < len(vendas_sheet['valor']):
+while i < len(vendas_sheet['valor'].tolist()):
          f = vendas_sheet.iloc[i]['valor']
          f = f.replace("R$ ", "").replace(".", "")
          f = f.replace(",", ".")
