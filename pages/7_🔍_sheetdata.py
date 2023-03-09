@@ -62,7 +62,7 @@ for name in nome_vendas_sheet:
          rows = vendas_sheet_dat.loc[vendas_sheet_dat['nome'] == name]
          data_u.append(rows['data ped'].tolist())
          data_u.append(rows['nome'].tolist())
-
+data_i = []
 i=0
 while i < len(nome_vendas_sheet):
          n = data_u[i+1]
