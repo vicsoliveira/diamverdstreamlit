@@ -76,29 +76,29 @@ while i < (2*len(nome_vendas_sheet)):
          data_i.append({n1 : n2})
          i=i +2
 
-# i = 0
-# while i < len(data_i):
-#          d = data_i[i]
-#          d1 = list(d.values())
-#          dt= d1[0]
-#          if len(dt) > 1:
-#                   j=0
-#                   res=[]
-#                   while j < (len(dt)-1):
-#                            x = (datetime.strptime(dt[j+1], "%d/%m/%Y") - datetime.strptime(dt[j], "%d/%m/%Y")).days
-#                            res.append(int(x))
-#                            j=j +1
-#                   fremed = round(mean(res), 0)
-#                   d[fre] = fremed
-#                   data_i[i] = d
-#                   i = i +1
-#          else:
-#                   d[fre] = 0
-#                   data_i[i] = d
-#                   i = i +1
+i = 0
+while i < len(data_i):
+         d = data_i[i]
+         d1 = list(d.values())
+         dt= d1[0]
+         if len(dt) > 1:
+                  j=0
+                  res=[]
+                  while j < (len(dt)-1):
+                           x = (datetime.strptime(dt[j+1], "%d/%m/%Y") - datetime.strptime(dt[j], "%d/%m/%Y")).days
+                           res.append(int(x))
+                           j=j +1
+                  fremed = round(mean(res), 0)
+                  d['fre'] = fremed
+                  data_i[i] = d
+                  i = i +1
+         else:
+                  d['fre'] = 0
+                  data_i[i] = d
+                  i = i +1
 
-d = data_i[0]
-st.write(d)
+
+st.write(data_i)
          
 
 
