@@ -62,10 +62,9 @@ st.plotly_chart(fig_quant)
 i=0
 while i < len(vendas_sheet['valor'].tolist()):
          f = vendas_sheet.iloc[i]['valor']
-         f = f.replace("R$ ", "").replace(".", "")
-         f = f.replace(",", ".")
-         f = float(f)
-         vendas_sheet.replace({'valor': i}, f)
+         x = f.replace("R$ ", "").replace(".", "").replace(",", ".")
+         x = float(x)
+         vendas_sheet.replace({'valor': f}, x)
          i=i+1
          
 quantcount2 = vendas_sheet.groupby(['quant'])['valor'].sum().reset_index(name='faturamento')
