@@ -69,8 +69,11 @@ for name in nome_vendas_sheet:
 #          data_i = data_i.append({n : dt})
 #          i=i +2
 
-n = data_u[1].get(1)[0].get(0)
-st.write(n)
+n = data_u[1]
+n1 = n.get(1)
+n2 = n1[0]
+n3 = n2.get(0)
+st.write(n3)
          
 # st.write(data_u2)
 
