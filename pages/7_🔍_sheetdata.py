@@ -124,7 +124,7 @@ def update_the_spreadsheet(sheetname,dataframe):
 
          
 i = 0
-df = Dataframe()
+df = pd.DataFrame()
 while i < len(nome_vendas_sheet):
          d = data_i[i]
          d1 = list(d.keys())
