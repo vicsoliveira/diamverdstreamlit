@@ -117,20 +117,23 @@ st.write(data_i)
 
 # Update to Sheet
 def update_the_spreadsheet(sheetname,dataframe):
-    col = ['nome_i','idade_i','freq', 'data_ult_i', 'data_prox_i']
+    col = ['nome_i','freq', 'data_ult_i', 'data_prox_i']
     spread.df_to_sheet(dataframe[col],sheet = sheetname,index = False)
     st.sidebar.info('Updated to GoogleSheet')
 
 
          
-# i = 0
-# while i < len(nome_vendas_sheet):
-#          opt = {'nome_i': [nome_vendas_sheet[i]], 'idade_i': [idade_vendas_sheet[i]], 'freq': [], 'data_ult_i': [data_ult_vendas_sheet[i]], 'data_prox_i': []} 
-#          opt_df = DataFrame(opt)
-#          df2 = load_the_spreadsheet('client_fre')
-#          new_df = df2.append(opt_df,ignore_index=True)
-#          i = i+1
-#          update_the_spreadsheet('client_fre',new_df)
+i = 0
+df = Dataframe()
+while i < len(nome_vendas_sheet):
+         d = data_i[i]
+         d1 = list(d.keys())
+         dt1 = d1[0]
+         opt = {'nome_i': [dt1], 'freq': [d['fre']], 'data_ult_i': [d['ult']], 'data_prox_i': [d['prox']]} 
+         opt_df = DataFrame(opt)
+         new_df = df.append(opt_df,ignore_index=True)
+         update_the_spreadsheet('client_fre',new_df)
+         i = i+1
 
 # st.info(comp_dict[show_me])
 # name = comp_dict['iupac_name']
