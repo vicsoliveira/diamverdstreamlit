@@ -75,12 +75,13 @@ d = data_i[7]
 d1 = list(d.values())
 
 dt= d1[0]
-while i < len(dt):
-         dtf = datetime.strptime(dt[i], "%d/%m/%Y")
-         dt[i] = dtf
+i=0
+res=[]
+while (i+1) < len(dt):
+         res.append((datetime.strptime(dt[i+1], "%d/%m/%Y") - datetime.strptime(dt[i], "%d/%m/%Y")).days
          i = i+1
 
-res = (dt[0] - dt[1]).days
+
 # difference between dates in timedelta
 # delta = d2 - d1
 
