@@ -59,9 +59,10 @@ fig_quant.update_layout(title_x = 0.5,
 
 st.plotly_chart(fig_quant)
 
-vendas_sheet['valor'] = vendas_sheet['valor'].replace("R$ ", "").replace(".", "")
-vendas_sheet['valor'] = vendas_sheet['valor'].replace(",", ".")
+
 for f in vendas_sheet['valor']:
+         f = f.replace("R$ ", "").replace(".", "")
+         f = f.replace(",", ".")
          f = float(f)
 quantcount2 = vendas_sheet.groupby(['quant'])['valor'].sum().reset_index(name='faturamento')
 
