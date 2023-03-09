@@ -115,7 +115,7 @@ while i < len(data_i):
          dt= d1[0]
          u = datetime.strptime(dt[-1], "%d/%m/%Y")
          x = u + timedelta(days=d['fre'])
-         d['prox'] = x
+         d['prox'] = datetime.strptime(x, "%d/%m/%Y")
          data_i[i] = d
          i = i +1
 
