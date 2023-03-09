@@ -52,12 +52,12 @@ fig_quant.update_layout(title_x = 0.5,
                   hovermode = 'x',
                    xaxis=dict(
                 tickmode='linear',
-                tick0=0.2,
-                dtick=0.2
+                tick0=0.1,
+                dtick=1
             )
                     )
 fig_quant.update_layout(height=300,
-                       width=500,
+                       width=300,
                        margin={'l': 20, 'r': 20, 't': 0, 'b': 0})
 
 i=0
@@ -86,12 +86,12 @@ fig_quant2.update_layout(title_x = 0.5,
                   hovermode = 'x',
                    xaxis=dict(
                 tickmode='linear',
-                tick0=0.2,
-                dtick=0.2
+                tick0=0.1,
+                dtick=1
             )
                     )
 fig_quant2.update_layout(height=300,
-                       width=500,
+                       width=300,
                        margin={'l': 20, 'r': 20, 't': 0, 'b': 0})
 
 
