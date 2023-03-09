@@ -61,7 +61,7 @@ st.plotly_chart(fig_quant)
 
 i=0
 while i < len(vendas_sheet['valor'].tolist()):
-         f = vendas_sheet.iloc[i]['valor']
+         f = vendas_sheet.loc[[i],['valor']]
          x = f.replace("R$ ", "").replace(".", "").replace(",", ".")
          x = float(x)
          vendas_sheet['valor'].replace(f, x)
