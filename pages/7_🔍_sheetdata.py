@@ -42,9 +42,6 @@ st.dataframe(vendas_sheet)
 
 quantcount = vendas_sheet.groupby(['quant'])['quant'].count().reset_index(name='counts')
 
-fig_quant = go.Figure(data=[
-    go.Bar(name='Pedidos', x=quantcount['quant'], y=quantcount['counts'])
-])
 
 layout = go.Layout(title_x = 0.5,
                    title = 'Pedidos',
@@ -55,6 +52,10 @@ layout = go.Layout(title_x = 0.5,
                 dtick=0.1
             )
                     )
+
+fig_quant = go.Figure(data=[
+    go.Bar(name='Pedidos', x=quantcount['quant'], y=quantcount['counts'])
+], layout)
 
 st.plotly_chart(fig_quant)
 
