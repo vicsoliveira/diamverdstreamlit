@@ -85,7 +85,7 @@ while i < len(dt):
 # delta = d2 - d1
 
 st.write(data_i)
-st.write(dt)         
+st.write(type(dt[0]))         
 
 
 # i = 0
