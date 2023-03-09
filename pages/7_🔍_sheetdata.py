@@ -52,8 +52,8 @@ fig_quant.update_layout(title_x = 0.5,
                   hovermode = 'x',
                    xaxis=dict(
                 tickmode='linear',
-                tick0=0.1,
-                dtick=0.9
+                tick0=0,
+                dtick=1
             )
                     )
 fig_quant.update_layout(height=300,
@@ -86,8 +86,8 @@ fig_quant2.update_layout(title_x = 0.5,
                   hovermode = 'x',
                    xaxis=dict(
                 tickmode='linear',
-                tick0=0.1,
-                dtick=0.9
+                tick0=0,
+                dtick=1
             )
                     )
 fig_quant2.update_layout(height=300,
