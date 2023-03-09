@@ -72,23 +72,25 @@ while i < (2*len(nome_vendas_sheet)):
          data_i.append({n1 : n2})
          i=i +2
 
-d = data_i[8]
-d1 = list(d.values())
+i = 0
+while i < len(data_i):
+         d = data_i[i]
+         d1 = list(d.values())
+         dt= d1[0]
+         j=0
+         res=[]
+         while j < (len(dt)-1):
+                  x = (datetime.strptime(dt[j+1], "%d/%m/%Y") - datetime.strptime(dt[j], "%d/%m/%Y")).days
+                  res.append(int(x))
+                  fremed = round(Average(res), 0)
+                  d[fre] = fremed
+                  data_i[i] = d
+                  j=j +1
+         i = i +1
 
-dt= d1[0]
-i=0
-res=[]
-while i < (len(dt)-1):
-         x = (datetime.strptime(dt[i+1], "%d/%m/%Y") - datetime.strptime(dt[i], "%d/%m/%Y")).days
-         res.append(int(x))     
-         i=i +1           
-
-
-# difference between dates in timedelta
-# delta = d2 - d1
 
 st.write(data_i)
-st.write(res)         
+         
 
 
 # i = 0
