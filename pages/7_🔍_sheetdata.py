@@ -80,7 +80,7 @@ i=0
 res=[]
 while i < (len(dt)-1):
          res.append((datetime.strptime(dt[i+1], "%d/%m/%Y") - datetime.strptime(dt[i], "%d/%m/%Y")).days
-         i = i+1
+         i = i+1           
 
 
 # difference between dates in timedelta
