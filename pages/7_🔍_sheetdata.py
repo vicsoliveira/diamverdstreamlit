@@ -78,7 +78,7 @@ st.write(n1)
 
 n2 = data_u[8]
 n3 = n2[0]
-st.write(n3)
+st.write(n2)
          
 # st.write(data_u2)
 
