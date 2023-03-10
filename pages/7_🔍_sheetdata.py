@@ -42,7 +42,7 @@ st.dataframe(vendas_sheet)
 
 quantcount = vendas_sheet.groupby(['quant'])['quant'].count().reset_index(name='counts')
 
-
+z=[12,24,48]
 fig_quant = go.Figure(data=[
     go.Bar(name='Pedidos', x=quantcount['quant'], y=quantcount['counts'], marker = dict(color = z, colorscale='viridis'))
 ])
@@ -76,7 +76,7 @@ while i < len(quantcount2['faturamento'].tolist()):
          quantcount2['faturamento'] = quantcount2['faturamento'].replace(f, x)
          i=i+1
 
-
+z=[12,24,48]
 fig_quant2 = go.Figure(data=[
     go.Bar(name='Pedidos', x=quantcount2['quant'], y=quantcount2['faturamento'], marker = dict(color = z, colorscale='viridis'))
 ])
