@@ -44,8 +44,7 @@ quantcount = vendas_sheet.groupby(['quant'])['quant'].count().reset_index(name='
 
 
 fig_quant = go.Figure(data=[
-    go.Bar(name='Pedidos', x=quantcount['quant'], y=quantcount['counts'], marker = dict(color = z,
-                     colorscale='viridis'))
+    go.Bar(name='Pedidos', x=quantcount['quant'], y=quantcount['counts'], marker = dict(color = z, colorscale='viridis'))
 ])
 
 fig_quant.update_layout(title_x = 0.5,
@@ -79,8 +78,7 @@ while i < len(quantcount2['faturamento'].tolist()):
 
 
 fig_quant2 = go.Figure(data=[
-    go.Bar(name='Pedidos', x=quantcount2['quant'], y=quantcount2['faturamento'], marker = dict(color = z,
-                     colorscale='viridis')
+    go.Bar(name='Pedidos', x=quantcount2['quant'], y=quantcount2['faturamento'], marker = dict(color = z, colorscale='viridis'))
 ])
 
 fig_quant2.update_layout(title_x = 0.5,
