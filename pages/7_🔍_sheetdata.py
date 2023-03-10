@@ -182,7 +182,9 @@ def update_the_spreadsheet(sheetname,dataframe):
     st.sidebar.info('Updated to GoogleSheet')
 
 
-         
+df = load_the_spreadsheet('client_fre')
+df.clear()
+update_the_spreadsheet('client_fre',df)
 i = 0
 while i < len(nome_vendas_sheet):
          d = data_i[i]
@@ -190,7 +192,6 @@ while i < len(nome_vendas_sheet):
          dt1 = d1[0]
          opt = {'nome_i': [dt1], 'freq': [d['fre']], 'data_ult_i': [d['ult']], 'data_prox_i': [d['prox']]} 
          opt_df = DataFrame(opt)
-         df = load_the_spreadsheet('client_fre')
          new_df = df.append(opt_df,ignore_index=True)
          update_the_spreadsheet('client_fre',new_df)
          i = i+1
